@@ -1,1 +1,0 @@
-# gallegosg.github.io
