@@ -1,0 +1,39 @@
+.about {
+  background-color: var(--main-tint-color);
+  padding: 20px;
+  color: #444;
+  align-items: center;
+  height: 50vh;
+  width: 100vw;
+  color: white;
+}
+
+.about span {
+  text-align: center;
+  font-size: 1.5rem;
+  display: flex;
+  margin: auto;
+  align-items: center;
+  height: 75%;
+  width: 50%;
+}
+
+.title-bar-white {
+  margin-top: 5px;
+  width: 20vw;
+  height: 5px;
+  background-color: #fff;
+  margin: auto;
+}
+
+@media screen and (min-width:320px) and (max-width: 480px)  { 
+  .about span {
+    text-align: center;
+    font-size: 1.5rem;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    height: 75%;
+    width: 90%;
+  }
+}

@@ -1,0 +1,24 @@
+.home {
+  color: #444;
+  height: 75vh;
+  justify-content: center;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  opacity: 1;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}​
+
+h1 {
+  justify-content: center;
+}
+
+#name {
+  font-size: 400%;
+  margin: 0;
+}

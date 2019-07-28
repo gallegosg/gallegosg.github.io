@@ -1,0 +1,138 @@
+.work {
+  color: #444;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+  padding: 20px;
+  margin: auto;
+  margin-bottom: 50px;
+}
+
+.work-tile {
+  height: 60vh;
+  width: 75vw;
+  margin: auto;
+  margin-top: 50px;
+  display: flex;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 10px 10px 50px lightgrey;
+}
+
+.left-container {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.left-container img {
+  margin: auto;
+  height: 50%;
+  object-fit: cover;
+  display: flex;
+  border-radius: 10px;
+}
+
+#icon {
+  height: 10%;
+  border-radius: 30%;
+  margin-top: 0;
+}
+
+.right-container {
+  width: 60%;
+  margin-right: 30px;
+}
+
+.title {
+  height: 10%;
+}
+
+.title p{
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.description {
+  flex: 0.4 0.4 10rem;
+  height: 45%;
+}
+
+.description p{
+  font-size: 1.3rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 5px;
+  width: 100%;
+}
+
+.tag {
+  border-radius: 50px;
+  border: 1px solid var(--main-tint-color);
+  text-align: center;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.tag p{
+  margin: 3px 20px 3px 20px;
+  font-size: 20px;
+}
+
+.source {
+  display: flex;
+}
+
+.source a {
+  font-size: 1.1rem;
+  color: #fff;
+  text-decoration: none;
+  background-color: var(--main-tint-color);
+  border-radius: 5px;
+  margin-top: 15px;
+  padding: 5px 15px 5px 15px;
+}
+
+.source a:hover {
+  font-size: 1.1rem;
+  color: #fff;
+  background-color: var(--main-tint-color);
+  border-radius: 5px;
+  padding: 5px 15px 5px 15px;
+  box-shadow: 3px 3px 15px #ddd;
+  cursor: pointer;
+  -moz-transform: translate(0, -2px);
+  -ms-transform: translate(0, -2px);
+  -o-transform: translate(0, -2px);
+  -webkit-transform: translate(0, -2px);
+  transform: translate(0, -2px);
+}
+
+@media screen and (min-width:320px) and (max-width: 480px)  { 
+  .work-tile {
+    height: auto;
+    width: 90vw;
+    background-color: #fff;
+    margin-top: 25px;
+    padding: 10px;
+    justify-content: space-around;
+    display: flex;
+    border-radius: 10px;
+    box-shadow: 10px 10px 50px lightgrey;
+  }
+  
+  .left-container {
+    display: none;
+  }
+
+  .right-container {
+    width: 100%;
+    margin-right: 30px;
+  }
+}

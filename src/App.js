@@ -1,53 +1,41 @@
-import React, { Component } from 'react';
-import './App.css';
+import React from "react";
+import Home from './tabs/Home'
+import Contact from './tabs/Contact'
+import About from './tabs/About'
+import Work from './tabs/Work'
+import { Link, Element } from 'react-scroll'
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      page: (<div><h1>Gerardo Gallegos</h1>
-      <p>Making cool things, eventually</p></div>)
-    };
-  }
-  
-  handleClick = (e) => {
-    const {id} = e.target
-    let page = '';
-    switch(id){
-      case 'home':
-        page = (<div><h1>Gerardo Gallegos</h1>
-          <p>Making cool things, eventually</p></div>)
-        break;
-      case 'contact':
-        page = (
-          <div>call me at ### but dont call me late for dinner</div>
-        )
-        break;
-      case 'about':
-        page = (<div>
-          <p>Full time programmer, part time racecar driver (in my mind)</p></div>)
-        break;
-      default: 
-        break;
-    }
-    this.setState({page})
-  }
-  render() {
-    return (
-      <div className='App'>
-        <div className="topnav">
-          <p onClick={this.handleClick} id={'home'} className="active" >Home</p>
-          <p onClick={this.handleClick} id={'contact'}>Contact</p>
-          <p onClick={this.handleClick} id={'about'}>About</p>
-        </div>
-        <div className='center'>
-          {/* <h1>Gerardo Gallegos</h1>
-          <p>Making cool things, eventually</p> */}
-          {this.state.page}
-        </div>
-      </div>
-    );
-  }
-}
+import "./App.css";
+
+const App = () => (
+  <div className='container'>
+    <Element name="home" className="topnav">
+      <Link to="home" id={"home"} smooth={true} duration={500}>
+        <p>Home</p>
+      </Link>
+      <Link to="about" id={"about"} smooth={true} duration={600}>
+        <p>About</p>
+      </Link>
+      <Link to="work" id={"work"} smooth={true} duration={800}>
+        <p>Projects</p>
+      </Link>
+      <Link to="contact" id={"contact"} smooth={true} duration={1000}>
+        <p>Contact</p>
+      </Link>
+    </Element>
+      
+    <Home />
+    <Element name="about">
+      <About />
+    </Element>
+    <Element name="work">
+      <Work />
+    </Element>
+    <Element name="contact">
+      <Contact />
+    </Element>
+    <p id="sign">Made by Gerardo Gallegos 2019</p>
+  </div>
+);
 
 export default App;
