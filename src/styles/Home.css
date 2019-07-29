@@ -22,3 +22,11 @@ h1 {
   font-size: 400%;
   margin: 0;
 }
+
+@media screen and (min-width:320px) and (max-width: 480px)  { 
+  #name {
+    font-size: 400%;
+    margin: 0;
+    word-spacing: 100vw;; 
+  }
+}
