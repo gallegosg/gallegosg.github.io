@@ -1,7 +1,7 @@
 import React from "react";
 import Tag from '../components/Tag'
 
-const WorkTile = ({ title, description, tags, image, icon, source}) => (
+const WorkTile = ({ title, description, tags, image, icon, source, link}) => (
   <div className='work-tile'>
     <div className="left-container">
       {image && <img src={image} alt={title}/>}
@@ -21,7 +21,8 @@ const WorkTile = ({ title, description, tags, image, icon, source}) => (
           ))}
         </div>
         <div className="source">
-          <a href={source}>View Source</a>
+          <a id="source" href={source}>View Source</a>
+          {link && <a id="link" href={link}>Try it out</a>}
         </div>
       </div>
     </div>

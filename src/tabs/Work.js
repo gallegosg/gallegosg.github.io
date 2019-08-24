@@ -14,6 +14,7 @@ const Work = ({projects}) => (
         icon={item.secondaryImage}
         tags={item.tags}
         source={item.source}
+        link={item.link}
         description={item.description} />
     ))}
   </div>
