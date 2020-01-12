@@ -4,7 +4,7 @@ import Contact from './tabs/Contact'
 import About from './tabs/About'
 import Work from './tabs/Work'
 import { Link, Element } from 'react-scroll'
-import { db } from './firebase'
+import { db, auth, app } from './firebase'
 import "./App.css";
 
 export default class App extends Component {
@@ -14,13 +14,27 @@ export default class App extends Component {
     this.state = {
       projects: {},
       about: '',
-      loading: true
+      loading: true,
+      error: false
     };
   };
   
-  componentWillMount = () => {
-    this.getProjects();
+  componentDidMount = () => {
+    this.authenticate()
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        this.getProjects();
+      }
+    });
   };
+
+  authenticate = () => {
+    this.setState({loading: true})
+    auth.signInAnonymously().catch(() => {
+      this.setState({loading: false, error: true})
+      app.delete().then();
+    });
+  }
 
   getProjects = async () => {
     try {
@@ -29,7 +43,8 @@ export default class App extends Component {
       const about = await this.getAbout();
       this.setState({projects, about, loading: false})
     } catch (err) {
-      console.log(err)
+      this.setState({loading: false, error: true})
+      app.delete().then();
     }
   }
 
@@ -39,17 +54,24 @@ export default class App extends Component {
       const about = querySnapshot.docs.map(doc => doc.data())[0].title;
       return about;
     } catch (err) {
-      console.log(err)
+      this.setState({loading: false, error: true})
+      app.delete().then();
     }
   }
 
   render(){
-    const { projects, about, loading } = this.state;
+    const { projects, about, loading, error } = this.state;
 
     if(loading) {
       return (
         <div className="loader-container">
           <div className="loader" />
+        </div>
+      )
+    }else if (error) {
+      return (
+        <div className="loader-container">
+          <h1>¯\(°_o)/¯</h1>
         </div>
       )
     }
