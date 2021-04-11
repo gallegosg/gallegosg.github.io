@@ -4,7 +4,6 @@ import '../styles/Work.css'
 
 const Work = ({projects}) => (
   <div className='work'>
-    {console.log(projects)}
     <p className='tab-title'>Projects</p>
     <div className="title-bar" />
     {projects.length > 0 && projects.map((item, index) => (
